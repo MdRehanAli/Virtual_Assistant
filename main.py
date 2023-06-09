@@ -1,6 +1,8 @@
 import speech_recognition as sr
 import pyttsx3 as tts
 import pywhatkit as kit
+import datetime as dt
+import wikipedia as wiki
 
 
 listener = sr.Recognizer()
@@ -38,5 +40,19 @@ def run_siri():
         song = command.replace('play', '')
         talk('playing')
         kit.playonyt(song)
+
+    #Time and date
+    elif 'time' in command:
+        time = dt.datetime.now().strftime('%H:%M')
+        print(time)
+        talk('Current time is ' + time)
+
+    #Wikipedia Searching
+    elif 'who is' in command:
+        person = command.replace('who is', '')
+        info = wiki.summary(person, 1)
+        print(info)
+        talk(info)
+
 
 run_siri()
