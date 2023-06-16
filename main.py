@@ -1,4 +1,5 @@
 # For converting Speech to text
+import pyjokes
 import speech_recognition as sr
 
 # For converting text to Speech
@@ -12,6 +13,9 @@ import datetime as dt
 
 # Find a result from wikipedia
 import wikipedia as wiki
+
+# Randomly get a joke
+import pyjokes as pj
 
 
 listener = sr.Recognizer()
@@ -30,7 +34,7 @@ def take_command():
     try:
         command = ""
         with sr.Microphone() as source:
-            print('Now I am listening')
+            print('Now I am listening...........')
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
@@ -75,5 +79,17 @@ def run_siri():
         print(result)
         talk(result)
 
+    # Randomly Generated jokes
+    elif 'joke' in command:
+        Jokes = pj.get_joke()
+        print(Jokes)
+        talk(Jokes)
 
-run_siri()
+    # Repeating the previous command
+
+    else:
+        talk('Please say the command again.')
+
+# Call under while loop
+while True:
+    run_siri()
