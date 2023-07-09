@@ -1,5 +1,4 @@
 # For converting Speech to text
-import pyjokes
 import speech_recognition as sr
 
 # For converting text to Speech
