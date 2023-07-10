@@ -22,7 +22,7 @@ Speaker = tts.init()
 
 # Change Voices 0 for male and 1 for female
 voices = Speaker.getProperty('voices')
-Speaker.setProperty('voice', voices[1].id)
+Speaker.setProperty('voice', voices[0].id)
 
 def talk(text):
     Speaker.say(text)
@@ -33,16 +33,12 @@ def take_command():
     try:
         command = ""
         with sr.Microphone() as source:
+            talk('I am ready Sir. Please tell me, how can I help you?')
             print('Now I am listening...........')
             voice = listener.listen(source)
             command = listener.recognize_google(voice)
             command = command.lower()
 
-            # Simple Conversation like:    Hi, Hello or Good Morning
-            if 'siri' in command:
-                command = command.replace('siri', '')
-                print(command)
-                talk(command)
     except:
         pass
     return command
@@ -52,8 +48,23 @@ def run_siri():
     command = take_command()
     print(command)
 
+    # Let's Introduce about my Assistant
+    if 'are you' in command:
+        print('My name is Siri & I am invented by team phantom.')
+        talk('My name is Siri & I am invented by team phantom.')
+
+    elif 'yourself' in command:
+        print('My name is Siri & I am invented by team phantom.')
+        talk('My name is Siri & I am invented by team phantom.')
+
+    # Simple Conversation like:    Hi, Hello or Good Morning
+    elif 'siri' in command:
+        command = command.replace('siri', '')
+        print(command)
+        talk(command)
+
     # Playing anything using Youtuber
-    if 'play' in command:
+    elif 'play' in command:
         song = command.replace('play', '')
         talk('playing'+song)
         kit.playonyt(song)
