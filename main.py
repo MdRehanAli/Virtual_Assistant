@@ -29,76 +29,76 @@ def talk(text):
     Speaker.runAndWait()
 
 # Taking and Printing any Command
-def take_command():
+def take_Command():
     try:
-        command = ""
+        Command = ""
         with sr.Microphone() as source:
             talk('I am ready Sir. Please tell me, how can I help you?')
             print('Now I am listening...........')
             voice = listener.listen(source)
-            command = listener.recognize_google(voice)
-            command = command.lower()
+            Command = listener.recognize_google(voice)
+            Command = Command.lower()
 
     except:
         pass
-    return command
+    return Command
 
 # Taking and Printing any Command
 def run_siri():
-    command = take_command()
-    print(command)
+    Command = take_Command()
+    print(Command)
 
     # Let's Introduce about my Assistant
-    if 'are you' in command:
+    if 'are you' in Command:
         print('My name is Siri & I am invented by team phantom.')
         talk('My name is Siri & I am invented by team phantom.')
 
-    elif 'yourself' in command:
+    elif 'yourself' in Command:
         print('My name is Siri & I am invented by team phantom.')
         talk('My name is Siri & I am invented by team phantom.')
 
     # Simple Conversation like:    Hi, Hello or Good Morning
-    elif 'siri' in command:
-        command = command.replace('siri', '')
-        print(command)
-        talk(command)
+    elif 'siri' in Command:
+        Command = Command.replace('siri', '')
+        print(Command)
+        talk(Command)
 
     # Playing anything using Youtuber
-    elif 'play' in command:
-        song = command.replace('play', '')
+    elif 'play' in Command:
+        song = Command.replace('play', '')
         talk('playing'+song)
         kit.playonyt(song)
 
     # Time and date
-    elif 'time' in command:
+    elif 'time' in Command:
         time = dt.datetime.now().strftime('%H:%M')
         print(time)
         talk('Current time is ' + time)
 
     # Wikipedia Searching person by mentioning who is
-    elif 'who is' in command:
-        person = command.replace('who is', '')
+    elif 'who is' in Command:
+        person = Command.replace('who is', '')
         info = wiki.summary(person, 2)
         print(info)
         talk(info)
 
     # Wikipedia Searching something by mentioning what is
-    elif 'what is' in command:
-        something = command.replace('what is', '')
+    elif 'what is' in Command:
+        something = Command.replace('what is', '')
         result = wiki.summary(something, 2)
         print(result)
         talk(result)
 
     # Randomly Generated jokes
-    elif 'joke' in command:
+    elif 'joke' in Command:
         Jokes = pj.get_joke()
         print(Jokes)
         talk(Jokes)
 
-    # Repeating the previous command
+    # Repeating the previous Command
 
     else:
-        talk('Please say the command again.')
+        talk('Please say the Command again.')
 
 # Call under while loop
 while True:
