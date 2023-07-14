@@ -16,6 +16,12 @@ import wikipedia as wiki
 # Randomly get a joke
 import pyjokes as pj
 
+import os
+
+import subprocess
+
+import webbrowser
+
 
 listener = sr.Recognizer()
 Speaker = tts.init()
@@ -95,10 +101,31 @@ def run_siri():
         print(Jokes)
         talk(Jokes)
 
+    elif 'shutdown' in Command:
+        print(Command)
+        talk('shutting down soon')
+        os.system('shutdown /s /t 0')
+
+    elif 'shutdown' in Command:
+        print(Command)
+        talk('shutting down soon')
+        os.system('shutdown /r /t 0')
+
+    elif 'notepad' in Command:
+        print(Command)
+        talk('Opening notepad')
+        subprocess.Popen('notepad')
+
+    elif 'google' or 'browser' in Command:
+        print(Command)
+        talk('Opening Web browser')
+        webbrowser.open('https://www.google.com')
+
+
     # Repeating the previous Command
 
     else:
-        talk('Please say the Command again.')
+        talk('Please click the run button and say the Command again.')
 
 # Call under while loop
 #while True:
@@ -119,8 +146,8 @@ panel.pack(side='right', fill='both', expand='no')
 
 userText = StringVar()
 
-userText.set('Your Virtual Assistant')
-userFrame = LabelFrame(root, text='Lena', font=('Railways', 24, 'bold'))
+userText.set('A Virtual Assistant')
+userFrame = LabelFrame(root, text='Siri', font=('Railways', 24, 'bold'))
 userFrame.pack(fill='both', expand='yes')
 
 top = Message(userFrame, textvariable=userText, bg='light blue', fg='dark blue')
