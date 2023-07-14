@@ -140,14 +140,33 @@ def run_siri():
     elif 'pdf' in Command:
         print('Opening your desired pdf file')
         talk('Opening your desired pdf file')
-        file_paths = r'D:\Programming\Python\Virtual_Assistant\Assistant.pdf'
-        os.startfile(file_paths)
+        file_path = r'D:\Programming\Python\Virtual_Assistant\Assistant.pdf'
+        os.startfile(file_path)
 
     elif 'video' in Command:
         print('Opening your desired video file')
         talk('Opening your desired video file')
-        file_paths = r'D:\Programming\Python\Virtual_Assistant\Assistant.mp4'
-        os.startfile(file_paths)
+        file_path = r'D:\Programming\Python\Virtual_Assistant\Assistant.mp4'
+        os.startfile(file_path)
+
+    elif 'powerpoint file' in Command:
+        print('Opening powerpoint file file')
+        talk('Opening powerpoint file file')
+        file_path = r'D:\Programming\Python\Virtual_Assistant\Assistant.pptx'
+        os.startfile(file_path)
+
+    elif 'Excel' in Command:
+        print('Opening MS Excel')
+        talk('Opening MS Excel')
+        application = r'C:\Program Files\Microsoft Office\Office16\EXCEL.EXE'
+        os.startfile(application)
+
+
+    elif 'powerpoint' in Command:
+        print('Opening MS powerpoint')
+        talk('Opening MS powerpoint')
+        application = r'C:\Program Files\Microsoft Office\Office16\POWERPNT.EXE'
+        os.startfile(application)
 
 
 
@@ -165,21 +184,21 @@ def run_siri():
 root = Tk()
 
 root.title('Virtual Assistant')
-#root.geometry('520x320')
+root.geometry('520x320')
 
-img = ImageTk.PhotoImage(Image.open('Assistant.jpg'))
-panel = Label(root, image=img)
-panel.pack(side='right', fill='both', expand='no')
+#img = ImageTk.PhotoImage(Image.open('Assistant.jpg'))
+#panel = Label(root, image=img)
+#panel.pack(side='right', fill='both', expand='no')
 
 userText = StringVar()
 
 userText.set('A Virtual Assistant')
-userFrame = LabelFrame(root, text='Siri', font=('Railways', 24, 'bold'))
-userFrame.pack(fill='both', expand='yes')
+userFrame = LabelFrame(root, text='Siri', font=('Railways', 20, 'bold'))
+userFrame.pack(expand='yes')
 
-top = Message(userFrame, textvariable=userText, bg='light blue', fg='dark blue')
-top.config(font=("Tahoma", 25, 'bold'))
-top.pack(side='top', fill='both', expand='yes')
+#top = Message(userFrame, textvariable=userText, bg='light blue', fg='dark blue')
+#top.config(font=("Tahoma", 25, 'bold'))
+#top.pack(side='top', fill='both', expand='no')
 
 btn1 = Button(root, text='Run', font=('Tahoma', 18, 'bold'), bg='light green', fg='Green', command=run_siri)
 btn1.pack(fill='x', expand='no')
