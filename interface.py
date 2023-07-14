@@ -14,7 +14,7 @@ panel.pack(side='right', fill='both', expand='no')
 userText = StringVar()
 
 userText.set('Your Virtual Assistant')
-userFrame = LabelFrame(root, text='Lena', font=('Railways', 24, 'bold'))
+userFrame = LabelFrame(root, text='Jonny', font=('Railways', 24, 'bold'))
 userFrame.pack(fill='both', expand='yes')
 
 top = Message(userFrame, textvariable=userText, bg='light blue', fg='dark blue')

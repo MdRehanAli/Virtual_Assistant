@@ -54,22 +54,22 @@ def take_Command():
     return Command
 
 # Taking and Printing any Command
-def run_siri():
+def run_Jonny():
     Command = take_Command()
     print(Command)
 
     # Let's Introduce about my Assistant
     if 'who are you' in Command:
-        print('My name is Siri & I am invented by team phantom.')
-        talk('My name is Siri & I am invented by team phantom.')
+        print('My name is Jonny & I am invented by Team Phantom. The members of team phantom are Md Rehan Ali and Md Sabbir Ahmed.')
+        talk('My name is Jonny & I am invented by Team Phantom. The members of team phantom are Md Rehan Ali and Md Sabbir Ahmed.')
 
     elif 'yourself' in Command:
-        print('My name is Siri & I am invented by team phantom.')
-        talk('My name is Siri & I am invented by team phantom.')
+        print('My name is Jonny & I am invented by Team Phantom. The members of team phantom are Md Rehan Ali and Md Sabbir Ahmed.')
+        talk('My name is Jonny & I am invented by Team Phantom. The members of team phantom are Md Rehan Ali and Md Sabbir Ahmed.')
 
     # Simple Conversation like:    Hi, Hello or Good Morning
-    elif 'siri' in Command:
-        Command = Command.replace('siri', '')
+    elif 'Jonny' in Command:
+        Command = Command.replace('Jonny', '')
         print(Command)
         talk(Command)
 
@@ -125,6 +125,12 @@ def run_siri():
         talk('Opening Web browser')
         webbrowser.open('https://www.google.com')
 
+    elif 'search' in Command:
+        Search = Command.replace('search', '')
+        talk('searching' + Search)
+        print(Command)
+        webbrowser.open('https://www.google.com/search?q=' + Search)
+
     elif 'calculator' in Command:
         print('Opening Calculator')
         talk('Opening Calculator')
@@ -155,6 +161,12 @@ def run_siri():
         file_path = r'D:\Programming\Python\Virtual_Assistant\Assistant.pptx'
         os.startfile(file_path)
 
+    elif 'word' in Command:
+        print('Opening MS word')
+        talk('Opening MS word')
+        application = r'C:\Program Files\Microsoft Office\Office16\WINWORD.EXE'
+        os.startfile(application)
+
     elif 'Excel' in Command:
         print('Opening MS Excel')
         talk('Opening MS Excel')
@@ -177,14 +189,14 @@ def run_siri():
 
 # Call under while loop
 #while True:
-    #run_siri()
+    #run_Jonny()
 
 #tkinter is a GUI of python
 
 root = Tk()
 
 root.title('Virtual Assistant')
-root.geometry('520x320')
+root.geometry('320x320')
 
 #img = ImageTk.PhotoImage(Image.open('Assistant.jpg'))
 #panel = Label(root, image=img)
@@ -192,18 +204,18 @@ root.geometry('520x320')
 
 userText = StringVar()
 
-userText.set('A Virtual Assistant')
-userFrame = LabelFrame(root, text='Siri', font=('Railways', 20, 'bold'))
-userFrame.pack(expand='yes')
+userText.set('Welcome to our Virtual World!')
+userFrame = LabelFrame(root, text='', font=('Railways', 20, 'bold'))
+userFrame.pack(fill='both', expand='yes')
 
-#top = Message(userFrame, textvariable=userText, bg='light blue', fg='dark blue')
-#top.config(font=("Tahoma", 25, 'bold'))
-#top.pack(side='top', fill='both', expand='no')
+top = Message(userFrame, textvariable=userText, bg='light blue', fg='dark blue')
+top.config(font=("Tahoma", 25, 'bold'))
+top.pack(side='top', fill='both', expand='yes')
 
-btn1 = Button(root, text='Run', font=('Tahoma', 18, 'bold'), bg='light green', fg='Green', command=run_siri)
+btn1 = Button(root, text='Run', font=('Tahoma', 18, 'bold'), bg='light green', fg='Green', command=run_Jonny)
 btn1.pack(fill='x', expand='no')
 
-btn2 = Button(root, text='Close', font=('Tahoma', 18, 'bold'), bg='light yellow', fg='orange', command=root.destroy)
+btn2 = Button(root, text='Close', font=('Tahoma', 18, 'bold'), bg='light yellow', fg='red', command=root.destroy)
 btn2.pack(fill='x', expand='no')
 
 root.mainloop()
