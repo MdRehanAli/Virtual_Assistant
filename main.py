@@ -22,6 +22,10 @@ import subprocess
 
 import webbrowser
 
+#tkinter is a GUI of python
+from tkinter import *
+from PIL import ImageTk,Image
+
 
 listener = sr.Recognizer()
 Speaker = tts.init()
@@ -55,7 +59,7 @@ def run_siri():
     print(Command)
 
     # Let's Introduce about my Assistant
-    if 'are you' in Command:
+    if 'who are you' in Command:
         print('My name is Siri & I am invented by team phantom.')
         talk('My name is Siri & I am invented by team phantom.')
 
@@ -103,12 +107,12 @@ def run_siri():
 
     elif 'shutdown' in Command:
         print(Command)
-        talk('shutting down soon')
+        talk('Wait a Sec ! Your system is on its way to shut down.')
         os.system('shutdown /s /t 0')
 
-    elif 'shutdown' in Command:
+    elif 'restart' in Command:
         print(Command)
-        talk('shutting down soon')
+        talk('Wait a Sec ! Your system is on its way to restart.')
         os.system('shutdown /r /t 0')
 
     elif 'notepad' in Command:
@@ -116,10 +120,35 @@ def run_siri():
         talk('Opening notepad')
         subprocess.Popen('notepad')
 
-    elif 'google' or 'browser' in Command:
+    elif 'browser' in Command:
         print(Command)
         talk('Opening Web browser')
         webbrowser.open('https://www.google.com')
+
+    elif 'calculator' in Command:
+        print('Opening Calculator')
+        talk('Opening Calculator')
+        subprocess.Popen('calc.exe')
+
+    elif 'photo' in Command:
+        print('Opening your desired photo')
+        talk('Opening your desired photo')
+        file_path = 'D:\Programming\Python\Virtual_Assistant\Assistant.jpg'
+        image = Image.open(file_path)
+        image.show()
+
+    elif 'pdf' in Command:
+        print('Opening your desired pdf file')
+        talk('Opening your desired pdf file')
+        file_paths = r'D:\Programming\Python\Virtual_Assistant\Assistant.pdf'
+        os.startfile(file_paths)
+
+    elif 'video' in Command:
+        print('Opening your desired video file')
+        talk('Opening your desired video file')
+        file_paths = r'D:\Programming\Python\Virtual_Assistant\Assistant.mp4'
+        os.startfile(file_paths)
+
 
 
     # Repeating the previous Command
@@ -132,8 +161,6 @@ def run_siri():
     #run_siri()
 
 #tkinter is a GUI of python
-from tkinter import *
-from PIL import ImageTk,Image
 
 root = Tk()
 
