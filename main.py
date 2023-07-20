@@ -68,8 +68,8 @@ def run_Jonny():
         talk('My name is Jonny & I am invented by Team Phantom. The members of team phantom are Md Rehan Ali and Md Sabbir Ahmed.')
 
     # Simple Conversation like:    Hi, Hello or Good Morning
-    elif 'Jonny' in Command:
-        Command = Command.replace('Jonny', '')
+    elif 'jonny' in Command:
+        Command = Command.replace('jonny', '')
         print(Command)
         talk(Command)
 
@@ -167,7 +167,7 @@ def run_Jonny():
         application = r'C:\Program Files\Microsoft Office\Office16\WINWORD.EXE'
         os.startfile(application)
 
-    elif 'Excel' in Command:
+    elif 'excel' in Command:
         print('Opening MS Excel')
         talk('Opening MS Excel')
         application = r'C:\Program Files\Microsoft Office\Office16\EXCEL.EXE'
@@ -178,6 +178,12 @@ def run_Jonny():
         print('Opening MS powerpoint')
         talk('Opening MS powerpoint')
         application = r'C:\Program Files\Microsoft Office\Office16\POWERPNT.EXE'
+        os.startfile(application)
+
+    elif 'code blocks' in Command:
+        print('Opening Code blocks')
+        talk('Opening Code blocks')
+        application = r'C:\Program Files\CodeBlocks\codeblocks.exe'
         os.startfile(application)
 
 
